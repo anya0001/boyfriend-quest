@@ -1,0 +1,40 @@
+/* Color Palette */
+$bg-color: #100D19; // Near-black midnight purple
+$panel-color: #21182C; // Deep plum
+$secondary-panel-color: #2D2039; // Lighter plum
+$primary-pink: #FF6EAA; // Soft pink
+$crimson: #FF477E; // Crimson
+$cream: #FFF0D8; // Warm cream
+$lavender: #C4ABC9; // Muted lavender
+$gold: #FFD879; // Golden
+$success: #8FE3B0; // Mint green for completed
+
+/* Spacing */
+$spacing-xxs: 2px;
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 12px;
+$spacing-lg: 16px;
+$spacing-xl: 24px;
+$spacing-xxl: 32px;
+
+/* Typography */
+$font-pixel: 'Press Start 2P', monospace; // Fallback will be handled in base
+$font-size-xs: 8px;
+$font-size-sm: 10px;
+$font-size-md: 12px;
+$font-size-lg: 14px;
+$font-size-xl: 16px;
+
+/* Breakpoints */
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
+/* Shadows */
+$shadow-sm: 0 0 4px rgba(0,0,0,0.5);
+$shadow-md: 0 0 8px rgba(0,0,0,0.7);
+$shadow-lg: 0 0 12px rgba(0,0,0,0.9);
+
+/* Pixel borders */
+$pixel-border: 2px solid;

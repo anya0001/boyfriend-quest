@@ -1,0 +1,42 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling when canvas is focused */
+  background-color: $bg-color;
+  color: $cream;
+  font-family: $font-pixel, 'Courier New', Courier, monospace;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: $spacing-sm;
+}
+
+/* Ensure canvas is displayed properly */
+canvas {
+  display: block;
+  margin: $spacing-md auto;
+  background-color: $secondary-panel-color;
+  border: $pixel-border $crimson;
+  box-shadow: $shadow-md;
+}
+
+/* Hide focus outline for buttons but keep for accessibility */
+button:focus {
+  outline: none;
+}
+
+/* Custom focus style */
+.button-focus {
+  outline: 2px solid $gold;
+}

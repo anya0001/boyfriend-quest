@@ -1,0 +1,10 @@
+/* Component-specific styles */
+/* We can add styles for specific components here if needed */
+/* For now, we'll keep it empty as we have mixins and layout */
+/* Example: */
+.button-special {
+  @include pixel-button;
+  background-color: $gold;
+  color: $bg-color;
+  border-color: $success;
+}

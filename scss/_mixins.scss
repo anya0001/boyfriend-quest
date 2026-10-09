@@ -1,0 +1,73 @@
+@mixin pixel-panel {
+  background-color: $panel-color;
+  border: $pixel-border $crimson;
+  box-shadow: $shadow-md;
+  color: $cream;
+  position: relative;
+  overflow: hidden;
+}
+
+@mixin pixel-button {
+  background-color: $primary-pink;
+  border: $pixel-border $crimson;
+  color: $cream;
+  padding: $spacing-xs $spacing-sm;
+  font-size: $font-size-sm;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  &:hover {
+    background-color: $crimson;
+    border-color: $primary-pink;
+  }
+  &:active {
+    transform: translate(1px, 1px);
+  }
+  &:focus {
+    outline: 2px solid $gold;
+  }
+}
+
+@mixin responsive-breakpoint($breakpoint) {
+  @media only screen and (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin pixel-text {
+  font-family: $font-pixel, 'Courier New', Courier, monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@mixin transition-all($time: 0.2s) {
+  transition: all $time ease-in-out;
+}
+
+@mixin animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@mixin animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@mixin animate-twinkle {
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.5; }
+  100% { opacity: 1; }
+}

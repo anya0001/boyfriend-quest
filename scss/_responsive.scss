@@ -1,0 +1,46 @@
+/* Responsive styles */
+
+/* Mobile styles */
+@include responsive-breakpoint($breakpoint-mobile) {
+  .game-hud {
+    flex-wrap: wrap;
+    gap: $spacing-xs;
+  }
+
+  .hud-item {
+    width: 50%;
+    text-align: center;
+  }
+
+  .game-area {
+    height: 400px;
+  }
+
+  .controls-desktop {
+    display: none;
+  }
+
+  .controls-mobile {
+    display: flex;
+  }
+}
+
+/* Tablet styles */
+@include responsive-breakpoint($breakpoint-tablet) {
+  .game-area {
+    height: 450px;
+  }
+
+  .game-sidebar {
+    flex-wrap: wrap;
+  }
+
+  .quest-log, .inventory {
+    width: 50%;
+  }
+}
+
+/* Desktop styles - already defined in layout, but we can override if needed */
+@include responsive-breakpoint($breakpoint-desktop) {
+  /* Desktop specific styles if needed */
+}

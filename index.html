@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boyfriend Quest</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="visible">
+        <div class="loading-spinner"></div>
+        <p>Loading your adventure...</p>
+    </div>
+
+    <!-- Game Container -->
+    <div class="game-container">
+        <!-- Header -->
+        <header class="game-header">
+            <h1 class="game-title">BOYFRIEND QUEST</h1>
+            <p class="game-subtitle">"A tiny adventure made just for you."</p>
+        </header>
+
+        <!-- HUD -->
+        <div class="game-hud" id="hud">
+            <div class="hud-item">
+                <div class="hud-label">Level</div>
+                <div class="hud-value" id="player-level">1</div>
+            </div>
+            <div class="hud-item">
+                <div class="hud-label">Hearts</div>
+                <div class="hud-value" id="hearts-collected">0</div>
+                <div class="hud-value" id="hearts-total">/ 8</div>
+            </div>
+            <div class="hud-item">
+                <div class="hud-label">Quests</div>
+                <div class="hud-value" id="quests-completed">0</div>
+                <div class="hud-value" id="quests-total">/ 3</div>
+            </div>
+            <div class="hud-item">
+                <div class="hud-label">Progress</div>
+                <div class="hud-value" id="progress-percent">0%</div>
+            </div>
+        </div>
+
+        <!-- Main Game Area -->
+        <div class="game-area">
+            <canvas id="game-canvas" width="800" height="500"></canvas>
+            <!-- Mobile controls will be appended here via JS -->
+        </div>
+
+        <!-- Sidebar: Quest Log and Inventory -->
+        <div class="game-sidebar">
+            <div class="quest-log">
+                <h3>Quest Log</h3>
+                <div id="quest-list"></div>
+            </div>
+            <div class="inventory">
+                <h3>Inventory</h3>
+                <div id="inventory-list"></div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="game-controls">
+            <!-- Desktop controls (hidden by default, shown on desktop) -->
+            <div class="controls-desktop">
+                <p>Use Arrow Keys or WASD to move</p>
+            </div>
+            <!-- Mobile controls (shown on mobile) -->
+            <div class="controls-mobile">
+                <button class="control-button" id="btn-up">&#9650;</button>
+                <button class="control-button" id="btn-left">&#9664;</button>
+                <button class="control-button" id="btn-down">&#9660;</button>
+                <button class="control-button" id="btn-right">&#9654;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dialogue Box -->
+    <div class="dialogue-box" id="dialogue-box">
+        <div class="dialogue-text" id="dialogue-text"></div>
+        <div class="dialogue-controls">
+            <button class="pixel-button" id="dialogue-ok">OK</button>
+            <button class="pixel-button" id="dialogue-skip">Skip</button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content" id="modal-content"></div>
+        <div class="modal-actions">
+            <button class="pixel-button" id="modal-ok">OK</button>
+            <button class="pixel-button" id="modal-cancel">Cancel</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/storage.js"></script>
+    <script src="js/quests.js"></script>
+    <script src="js/dialogue.js"></script>
+    <script src="js/game.js"></script>
+   <script type="module" src="js/main.js"></script>
+</body>
+</html>

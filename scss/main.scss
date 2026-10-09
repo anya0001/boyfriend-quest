@@ -1,0 +1,18 @@
+/* Import variables and mixins first */
+@import 'variables';
+@import 'mixins';
+
+/* Import base styles */
+@import 'base';
+
+/* Import layout styles */
+@import 'layout';
+
+/* Import game-specific styles */
+@import 'game';
+
+/* Import component styles */
+@import 'components';
+
+/* Import responsive styles (we'll create this next) */
+@import 'responsive';

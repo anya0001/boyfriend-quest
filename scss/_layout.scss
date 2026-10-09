@@ -1,0 +1,198 @@
+/* Layout styles */
+.game-container {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-md;
+  margin-top: $spacing-md;
+}
+
+/* Header */
+.game-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xs;
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+}
+
+.game-title {
+  @include pixel-text;
+  font-size: $font-size-xl;
+  color: $primary-pink;
+  text-shadow: 0 0 4px $crimson;
+}
+
+.game-subtitle {
+  font-size: $font-size-sm;
+  color: $lavender;
+  max-width: 600px;
+}
+
+/* HUD */
+.game-hud {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 800px;
+  background-color: $panel-color;
+  border: $pixel-border $crimson;
+  box-shadow: $shadow-sm;
+  padding: $spacing-xs $spacing-sm;
+  gap: $spacing-md;
+}
+
+.hud-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xxs;
+}
+
+.hud-label {
+  font-size: $font-size-xs;
+  color: $lavender;
+}
+
+.hud-value {
+  font-size: $font-size-sm;
+  font-weight: bold;
+  color: $cream;
+}
+
+/* Main game area */
+.game-area {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 500px;
+  background-color: $secondary-panel-color;
+  border: $pixel-border $crimson;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+}
+
+/* Quest log and inventory */
+.game-sidebar {
+  display: flex;
+  gap: $spacing-md;
+  width: 100%;
+  max-width: 800px;
+}
+
+.quest-log, .inventory {
+  flex: 1;
+  background-color: $panel-color;
+  border: $pixel-border $crimson;
+  box-shadow: $shadow-sm;
+  padding: $spacing-sm;
+}
+
+.quest-log h3, .inventory h3 {
+  @include pixel-text;
+  font-size: $font-size-md;
+  color: $primary-pink;
+  margin-bottom: $spacing-xs;
+}
+
+.quest-item, .inventory-item {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-xxs;
+  font-size: $font-size-sm;
+}
+
+.quest-item.completed .quest-description {
+  color: $success;
+  text-decoration: line-through;
+}
+
+.inventory-item.icon {
+  width: 20px;
+  height: 20px;
+  background-color: $primary-pink;
+  border: 1px solid $crimson;
+}
+
+/* Controls */
+.game-controls {
+  margin-top: $spacing-md;
+  display: flex;
+  gap: $spacing-sm;
+  justify-content: center;
+}
+
+.controls-desktop {
+  display: none;
+}
+
+.controls-mobile {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.control-button {
+  @include pixel-button;
+  width: 40px;
+  height: 40px;
+  font-size: $font-size-lg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dialogue and modals */
+.dialogue-box, .modal {
+  @include pixel-panel;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
+  padding: $spacing-md;
+  z-index: 100;
+  display: none;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.dialogue-box.show, .modal.show {
+  display: flex;
+}
+
+.dialogue-text {
+  font-size: $font-size-sm;
+  line-height: 1.4;
+}
+
+.dialogue-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: $spacing-xs;
+}
+
+.modal-content {
+  font-size: $font-size-sm;
+  line-height: 1.4;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: $spacing-sm;
+}
+
+/* Loading/hidden states */
+.hidden {
+  display: none !important;
+}
+
+.visible {
+  display: block !important;
+}

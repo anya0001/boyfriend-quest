@@ -1,0 +1,23 @@
+{
+  "name": "boyfriend-quest",
+  "version": "1.0.0",
+  "description": "A pixel-art romantic adventure game for my boyfriend",
+  "main": "index.html",
+  "scripts": {
+    "sass": "sass --watch scss/main.scss:css/main.css",
+    "dev": "npm run sass",
+    "build": "sass scss/main.scss:css/main.css"
+  },
+  "keywords": [
+    "game",
+    "pixelart",
+    "romantic",
+    "javascript",
+    "scss"
+  ],
+  "author": "Ana",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.0"
+  }
+}
