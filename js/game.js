@@ -56,27 +56,44 @@ const Game = {
         const treeSize = 32;
         const rockSize = 20;
 
-        // Add some trees
-        for (let i = 0; i < 15; i++) {
-            this.obstacles.push({
-                x: Math.random() * (this.map.width - treeSize),
-                y: Math.random() * (this.map.height - treeSize),
-                width: treeSize,
-                height: treeSize,
-                type: 'tree'
-            });
-        }
+        // Keep the starting point, collectible hearts, and final shrine reachable.
+        const protectedZones = [
+            { x: 75, y: 75, width: 66, height: 66 },
+            { x: 175, y: 125, width: 50, height: 50 },
+            { x: 275, y: 95, width: 50, height: 50 },
+            { x: 375, y: 155, width: 50, height: 50 },
+            { x: 125, y: 225, width: 50, height: 50 },
+            { x: 325, y: 195, width: 50, height: 50 },
+            { x: 225, y: 325, width: 50, height: 50 },
+            { x: 425, y: 275, width: 50, height: 50 },
+            { x: this.map.width / 2 - 30, y: 35, width: 60, height: 65 }
+        ];
 
-        // Add some rocks
-        for (let i = 0; i < 10; i++) {
-            this.obstacles.push({
-                x: Math.random() * (this.map.width - rockSize),
-                y: Math.random() * (this.map.height - rockSize),
-                width: rockSize,
-                height: rockSize,
-                type: 'rock'
-            });
-        }
+        const placeRandomObstacle = (width, height, type) => {
+            for (let attempt = 0; attempt < 100; attempt++) {
+                const candidate = {
+                    x: Math.random() * (this.map.width - width),
+                    y: Math.random() * (this.map.height - height),
+                    width,
+                    height,
+                    type
+                };
+                const overlapsProtectedZone = protectedZones.some(zone =>
+                    candidate.x < zone.x + zone.width &&
+                    candidate.x + candidate.width > zone.x &&
+                    candidate.y < zone.y + zone.height &&
+                    candidate.y + candidate.height > zone.y
+                );
+                if (!overlapsProtectedZone) {
+                    this.obstacles.push(candidate);
+                    return;
+                }
+            }
+        };
+
+        // Add trees and rocks without blocking important locations.
+        for (let i = 0; i < 15; i++) placeRandomObstacle(treeSize, treeSize, 'tree');
+        for (let i = 0; i < 10; i++) placeRandomObstacle(rockSize, rockSize, 'rock');
 
         // Add boundaries as obstacles (so player can't leave the map)
         // Top boundary
