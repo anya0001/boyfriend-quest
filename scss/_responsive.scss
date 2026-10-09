@@ -12,6 +12,11 @@
     text-align: center;
   }
 
+  .quest-log, .inventory {
+    flex-basis: 100%;
+    width: 100%;
+  }
+
   .game-area {
     height: auto;
     aspect-ratio: 8 / 5;
