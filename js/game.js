@@ -28,7 +28,7 @@ const Game = {
     },
     keysPressed: {},
     showQuiz: false,
-    showFlowerSelection: false,
+    flowerSelectionActive: false,
     currentQuestionIndex: 0,
     quizScore: 0,
     selectedFlower: null,
@@ -241,15 +241,6 @@ const Game = {
         // Check for final reward access
         this.checkFinalRewardAccess();
 
-        // Handle quiz UI if active
-        if (this.showQuiz) {
-            this.updateQuizUI();
-        }
-
-        // Handle flower selection UI if active
-        if (this.showFlowerSelection) {
-            this.updateFlowerSelectionUI();
-        }
     },
 
     checkCollision: function(x, y, width, height) {
@@ -458,7 +449,7 @@ Your girl ♥`, {
 
     // Flower selection functionality
     showFlowerSelection: function() {
-        this.showFlowerSelection = true;
+        this.flowerSelectionActive = true;
         this.updateFlowerSelectionUI();
     },
 
@@ -483,7 +474,7 @@ Your girl ♥`, {
         const flower = FlowerOptions.find(f => f.id === flowerId);
         if (flower) {
             this.selectedFlower = flower;
-            this.showFlowerSelection = false;
+            this.flowerSelectionActive = false;
             // Complete quest 3
             QuestManager.completeQuest(3);
             Dialogue.showMessage('Flower Selected!', flower.message, {
