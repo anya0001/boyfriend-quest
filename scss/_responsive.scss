@@ -13,7 +13,8 @@
   }
 
   .game-area {
-    height: 400px;
+    height: auto;
+    aspect-ratio: 8 / 5;
   }
 
   .controls-desktop {
@@ -28,7 +29,8 @@
 /* Tablet styles */
 @include responsive-breakpoint($breakpoint-tablet) {
   .game-area {
-    height: 450px;
+    height: auto;
+    aspect-ratio: 8 / 5;
   }
 
   .game-sidebar {
@@ -36,7 +38,7 @@
   }
 
   .quest-log, .inventory {
-    width: 50%;
+    width: calc(50% - #{$spacing-sm});
   }
 }
 
