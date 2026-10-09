@@ -6,8 +6,9 @@
 }
 
 html, body {
-  height: 100%;
-  overflow: hidden; /* Prevent scrolling when canvas is focused */
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
   background-color: $bg-color;
   color: $cream;
   font-family: $font-pixel, 'Courier New', Courier, monospace;
@@ -25,10 +26,12 @@ body {
 /* Ensure canvas is displayed properly */
 canvas {
   display: block;
-  margin: $spacing-md auto;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
   background-color: $secondary-panel-color;
-  border: $pixel-border $crimson;
-  box-shadow: $shadow-md;
+  border: 0;
+  box-shadow: none;
 }
 
 /* Hide focus outline for buttons but keep for accessibility */
