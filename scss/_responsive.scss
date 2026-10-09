@@ -33,6 +33,14 @@
     aspect-ratio: 8 / 5;
   }
 
+  .controls-desktop {
+    display: none;
+  }
+
+  .controls-mobile {
+    display: flex;
+  }
+
   .game-sidebar {
     flex-wrap: wrap;
   }
