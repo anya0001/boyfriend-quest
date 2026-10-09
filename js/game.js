@@ -244,8 +244,10 @@ const Game = {
     },
 
     checkCollision: function(x, y, width, height) {
-        // Check against obstacles
+        // The shrine is a destination, not a wall; the player must be able to reach it.
         for (const obstacle of this.obstacles) {
+            if (obstacle.type === 'shrine') continue;
+
             if (
                 x < obstacle.x + obstacle.width &&
                 x + width > obstacle.x &&
@@ -271,6 +273,7 @@ const Game = {
                     heart.collected = true;
                     this.heartsCollected++;
                     this.updateHUD();
+                    this.saveGameState();
 
                     // Show heart collection message
                     const heartMessages = [
