@@ -10,6 +10,9 @@ const Storage = {
         try {
             const data = {
                 heartsCollected: Game.heartsCollected,
+                collectedHeartIndexes: Game.hearts
+                    .map((heart, index) => heart.collected ? index : null)
+                    .filter(index => index !== null),
                 completedQuests: QuestManager.completedQuests,
                 playerPosition: Game.playerPosition,
                 introCompleted: Game.introCompleted,
@@ -29,7 +32,16 @@ const Storage = {
                 // Only update if Game and QuestManager are available
                 if (typeof Game !== 'undefined' && typeof QuestManager !== 'undefined') {
                     Game.heartsCollected = data.heartsCollected || 0;
-                    QuestManager.completedQuests = data.completedQuests || [];
+                    QuestManager.completedQuests = Array.isArray(data.completedQuests) ? data.completedQuests : [];
+                    const collectedHeartIndexes = Array.isArray(data.collectedHeartIndexes)
+                        ? data.collectedHeartIndexes
+                        : Array.from(
+                            { length: Math.min(Game.heartsCollected, Game.hearts.length) },
+                            (_, index) => index
+                        );
+                    Game.hearts.forEach((heart, index) => {
+                        heart.collected = collectedHeartIndexes.includes(index);
+                    });
                     Game.playerPosition = data.playerPosition || { x: 100, y: 100 };
                     Game.introCompleted = data.introCompleted || false;
                     Game.finalRewardUnlocked = data.finalRewardUnlocked || false;
