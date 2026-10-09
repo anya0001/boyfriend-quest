@@ -642,8 +642,14 @@ Your girl ♥`, {
 // Initialize the game when the window loads
 window.addEventListener('load', () => {
     // Hide loading screen after a short delay
+    // Hide the loading overlay defensively; CSS class rules must not trap the game.
     setTimeout(() => {
-        document.getElementById('loading-screen').classList.remove('visible');
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+            loadingScreen.classList.remove('visible');
+            loadingScreen.style.display = 'none';
+            loadingScreen.setAttribute('aria-hidden', 'true');
+        }
     }, 500);
 
     try {
