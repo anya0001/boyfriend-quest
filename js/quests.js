@@ -139,8 +139,18 @@ const QuestManager = {
         });
     },
 
-    // Initialize the quest display
+    // Sync saved quest IDs with the visible quest state, then render the quest log.
     initDisplay: function() {
+        this.quests.forEach(quest => {
+            quest.completed = this.completedQuests.includes(quest.id);
+            quest.unlocked = quest.id === 1 || this.completedQuests.includes(quest.id - 1);
+        });
+
+        const heartQuest = this.quests.find(quest => quest.id === 1);
+        if (heartQuest && typeof Game !== 'undefined') {
+            heartQuest.progress = Math.min(Game.heartsCollected, heartQuest.target);
+        }
+
         this.updateQuestDisplay();
     }
 };
