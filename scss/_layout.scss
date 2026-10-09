@@ -69,7 +69,8 @@
   position: relative;
   width: 100%;
   max-width: 800px;
-  height: 500px;
+  height: auto;
+  aspect-ratio: 8 / 5;
   background-color: $secondary-panel-color;
   border: $pixel-border $crimson;
   box-shadow: $shadow-md;
@@ -101,9 +102,10 @@
 
 .quest-item, .inventory-item {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   gap: $spacing-xs;
-  margin-bottom: $spacing-xxs;
+  margin-bottom: $spacing-sm;
   font-size: $font-size-sm;
 }
 
@@ -128,11 +130,16 @@
 }
 
 .controls-desktop {
-  display: none;
+  display: block;
+  font-size: $font-size-xs;
+  color: $lavender;
+  text-align: center;
 }
 
 .controls-mobile {
-  display: flex;
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: $spacing-sm;
 }
 
@@ -194,5 +201,5 @@
 }
 
 .visible {
-  display: block !important;
+  display: flex !important;
 }
